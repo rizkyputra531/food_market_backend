@@ -15,13 +15,13 @@ class UserController extends Controller
     public function login(Request $request)
     {
         try {
-            //validasi input
+            //validasi input ketika mau login
             $request->validate([
                 'email' => 'email|required',
                 'password' => 'required'
             ]);
 
-            // cek credential (login)
+            // cek credential untuk proses login
             $credentials = request(['email', 'password']);
             if (!Auth::attempt($credentials)) {
                 return ResponseFormatter::error([
