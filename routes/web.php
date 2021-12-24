@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //HOMEPAGE
 Route::get('/', function () {
     // return view('welcome');
-    return redirect()->route('admin-dashboard');
+    return redirect()->route('dashboard');
 });
 
 
@@ -26,7 +26,7 @@ Route::get('/', function () {
 Route::prefix('dashboard')
     ->middleware(['auth:sanctum', 'admin'])
     ->group(function () {
-        Route::get('/', [DashboardController::class, 'index'])->name('admin-dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     });
 
 // Route::get('/debug-sentry', function () {
