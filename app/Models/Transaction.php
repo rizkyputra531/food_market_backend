@@ -27,12 +27,14 @@ class Transaction extends Model
 
     public function getCreatedAtAttribute($value)
     {
-        return Carbon::parse($value)->timeStamp;
+        return Carbon::parse($value)
+            ->getPreciseTimestamp(3);
     }
 
     public function getUpdateAtAttribute($value)
     {
-        return Carbon::parse($value)->timestamp;
+        return Carbon::parse($value)
+            ->getPreciseTimestamp(3);
     }
 
 }

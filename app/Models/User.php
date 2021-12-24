@@ -62,12 +62,13 @@ class User extends Authenticatable
 
     public function getCreatedAtAttribute($value)
     {
-        return Carbon::parse($value)->timeStamp;
+        return Carbon::parse($value)
+            ->getPreciseTimestamp(3);
     }
-
-    public function getUpdateAtAttribute($value)
+    public function getUpdatedAtAttribute($value)
     {
-        return Carbon::parse($value)->timestamp;
+        return Carbon::parse($value)
+            ->getPreciseTimestamp(3);
     }
 
 
