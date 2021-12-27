@@ -35,6 +35,7 @@ class UserRequest extends FormRequest
             'houseNumber' => ['required', 'string', 'max:255'],
             'phoneNumber' => ['required', 'string', 'max:255'],
             'city' => ['required', 'string', 'max:255'],
+            'profile_photo_path' => ['required'],
         ];
     }
 }
