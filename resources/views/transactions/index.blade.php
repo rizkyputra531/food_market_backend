@@ -1,53 +1,43 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Data User') }}
+            {{ __('Transaction') }}
         </h2>
     </x-slot>
 
+
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="mb-10">
-                <a href="{{ route('users.create') }}"
-                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                    + Create User
-                </a>
-            </div>
-            <div class="bg-white max-w-7xl mx-auto px-4 py-10">
+
+        <div class="bg-white max-w-7xl mx-auto px-4 py-10">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white">
                     <table class="table-auto w-full">
                         <thead>
                             <tr>
                                 <th class="border px-6 py-4">ID</th>
-                                <th class="border px-6 py-4" width="40px">Photo</th>
-                                <th class="border px-6 py-4">Name</th>
-                                <th class="border px-6 py-4">Email</th>
-                                <th class="border px-6 py-4">Roles</th>
+                                <th class="border px-6 py-4">Food</th>
+                                <th class="border px-6 py-4">User Email</th>
+                                <th class="border px-6 py-4">Quantity</th>
+                                <th class="border px-6 py-4">Total</th>
+                                <th class="border px-6 py-4">Status</th>
                                 <th class="border px-6 py-4">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($user as $item)
-                                <tr class="text-center">
+                            @forelse($transaction as $item)
+                                <tr>
                                     <td class="border px-6 py-4">{{ $item->id }}</td>
-
-
-                                    <td class="border px-6 py-4 object-center">
-
-                                        <img src="{{ Storage::url($item->profile_photo_path) }}"
-                                            class="w-20 rounded-md">
-
-
-                                    </td>
-                                    <td class="border px-6 py-4 ">{{ $item->name }}</td>
-                                    <td class="border px-6 py-4">{{ $item->email }}</td>
-                                    <td class="border px-6 py-4 text-center">{{ $item->roles }}</td>
+                                    <td class="border px-6 py-4 ">{{ $item->food->name }}</td>
+                                    <td class="border px-6 py-4 ">{{ $item->user->email }}</td>
+                                    <td class="border px-6 py-4">{{ $item->quantity }}</td>
+                                    <td class="border px-6 py-4">{{ number_format($item->total) }}</td>
+                                    <td class="border px-6 py-4">{{ $item->status }}</td>
                                     <td class="border px-6 py- text-center">
-                                        <a href="{{ route('users.edit', $item->id) }}"
+                                        <a href="{{ route('transactions.show', $item->id) }}"
                                             class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded">
-                                            Edit
+                                            View
                                         </a>
-                                        <form action="{{ route('users.destroy', $item->id) }}" method="POST"
+                                        <form action="{{ route('transactions.destroy', $item->id) }}" method="POST"
                                             class="inline-block">
                                             {!! method_field('delete') . csrf_field() !!}
                                             <button type="submit"
@@ -68,12 +58,9 @@
                     </table>
                 </div>
                 <div class="text-center mt-5">
-                    {{ $user->links() }}
+                    {{ $transaction->links() }}
                 </div>
             </div>
-
-            
-
         </div>
     </div>
 </x-app-layout>

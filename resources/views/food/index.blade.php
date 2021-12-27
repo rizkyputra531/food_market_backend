@@ -20,13 +20,15 @@
                         <thead>
                             <tr>
                                 <th class="border px-6 py-4">ID</th>
+                                <th class="border px-6 py-4">Photo</th>
+
                                 <th class="border px-6 py-4">Name</th>
-                                <th class="border px-6 py-4">Ingredients</th>
+                                {{-- <th class="border px-6 py-4">Ingredients</th> --}}
 
                                 <th class="border px-6 py-4">Description</th>
                                 <th class="border px-6 py-4">Price</th>
-                                <th class="border px-6 py-4" >Rate</th>
-                                <th class="border px-6 py-4" >Types</th>
+                                <th class="border px-6 py-4">Rate</th>
+                                <th class="border px-6 py-4">Types</th>
                                 <th class="border px-6 py-4" width="190px">Action</th>
                             </tr>
                         </thead>
@@ -34,8 +36,17 @@
                             @forelse($food as $item)
                                 <tr>
                                     <td class="border px-6 py-4">{{ $item->id }}</td>
+
+
+                                    <td class="border px-6 py-4 object-center">
+
+                                        <img src="{{ $item->picturePath}}"
+                                            class="w-48 rounded-md">
+
+
+                                    </td>
                                     <td class="border px-6 py-4 ">{{ $item->name }}</td>
-                                    <td class="border px-6 py-4 ">{{ $item->ingredients }}</td>
+                                    {{-- <td class="border px-6 py-4 ">{{ $item->ingredients }}</td> --}}
                                     <td class="border px-6 py-4 ">{{ $item->description }}</td>
                                     <td class="border px-6 py-4">{{ number_format($item->price) }}</td>
                                     <td class="border px-6 py-4">{{ $item->rate }}</td>
