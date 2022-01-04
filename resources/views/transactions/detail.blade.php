@@ -16,6 +16,13 @@
                     </div>
                     <div class="w-full md:w-5/6 px-4 mb-4 md:mb-0">
                         <div class="flex flex-wrap mb-3">
+                            <div class="w-6/6">
+                                <div class="text-sm">Tanggal Transaksi</div>
+                                <div class="text-xl font-bold">{{ ($item->food->created_at) }}</div>
+                            </div>
+                            
+                        </div>
+                        <div class="flex flex-wrap mb-3">
                             <div class="w-2/6">
                                 <div class="text-sm">Product Name</div>
                                 <div class="text-xl font-bold">{{ $item->food->name }}</div>
@@ -89,4 +96,5 @@
             </div>
         </div>
     </div>
+    
 </x-app-layout>

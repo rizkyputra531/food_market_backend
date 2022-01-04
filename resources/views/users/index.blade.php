@@ -18,24 +18,29 @@
                     <table class="table-auto w-full">
                         <thead>
                             <tr>
+                                <th class="border px-6 py-4">No</th>
                                 <th class="border px-6 py-4">ID</th>
-                                <th class="border px-6 py-4" width="40px">Photo</th>
+                                <th class="border px-6 py-4" width="150px">Photo</th>
                                 <th class="border px-6 py-4">Name</th>
                                 <th class="border px-6 py-4">Email</th>
                                 <th class="border px-6 py-4">Roles</th>
                                 <th class="border px-6 py-4">Action</th>
                             </tr>
                         </thead>
+                        @php
+                            $no = 1;
+                        @endphp
                         <tbody>
                             @forelse($user as $item)
                                 <tr class="text-center">
+                                    <td class="border px-6 py-4">{{ $no++ }}</td>
                                     <td class="border px-6 py-4">{{ $item->id }}</td>
 
 
                                     <td class="border px-6 py-4 object-center">
 
                                         <img src="{{ Storage::url($item->profile_photo_path) }}"
-                                            class="w-20 rounded-md">
+                                            class="w-30 rounded-md">
 
 
                                     </td>
@@ -72,7 +77,7 @@
                 </div>
             </div>
 
-            
+
 
         </div>
     </div>
