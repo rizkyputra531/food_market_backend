@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('houseNumber')->nullable();
             $table->string('phoneNumber')->nullable();
             $table->string('city')->nullable();
+            $table->integer('total_transaksi')->default('0');
 
 
             $table->string('roles')->default('USER');

@@ -46,7 +46,9 @@ class FoodController extends Controller
         $data = $request->all();
         $data['picturePath'] = $request->file('picturePath')->store('assets/food', 'public');
         $data['password'] = Hash::make($request->password);
-        // $data['current_team_id'] = 1;
+        $a = $request['price'];
+        $b = $request['modal'];
+        $data['laba'] = $a-$b;
 
         Food::create($data);
 
@@ -97,8 +99,9 @@ class FoodController extends Controller
         $data['picturePath'] = $request->file('picturePath')->store('assets/food', 'public');
         }
         $data['password'] = Hash::make($request->password);
-        // $data['current_team_id'] = 1;
-        // dd($data);
+        $a = $request['price'];
+        $b = $request['modal'];
+        $data['laba'] = $a-$b;
         $food->update($data);
 
         return redirect()->route('food.index');

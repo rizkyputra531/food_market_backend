@@ -27,14 +27,8 @@ class UserUpdateRequest extends FormRequest
     {
         return [
             //
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'max:255'],
-            'password' => $this->passwordRules(),
-            'address' => ['required', 'string'],
-            'roles' => ['required', 'string', 'max:255', 'in:USER,ADMIN'],
-            'houseNumber' => ['required', 'string', 'max:255'],
-            'phoneNumber' => ['required', 'string', 'max:255'],
-            'city' => ['required', 'string', 'max:255']
+           'password' => 'required|min:6',
+           // 'password_confirmation' => 'required',
         ];
     }
 }

@@ -19,6 +19,11 @@ class CreateTransactionsTable extends Migration
             $table->integer('food_id');
             $table->integer('quantity');
             $table->integer('total');
+            $table->integer('food_price');
+            $table->integer('food_modal');
+            $table->integer('total_modal');
+            $table->integer('food_laba');
+            $table->integer('total_laba');
             $table->string('status');
             $table->text('payment_url');
 

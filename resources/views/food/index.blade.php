@@ -16,21 +16,24 @@
 
             <div class="bg-white max-w-7xl mx-auto px-4 py-10">
                 <div class="bg-white">
-                    <table class="table-auto w-full text-center">
+                    <table class="table-auto w-full text-center" style="font-size: 11px">
                         <thead>
                             <tr>
                                 {{-- <th class="border px-6 py-4">No</th> --}}
-                                <th class="border px-6 py-4">ID</th>
-                                <th class="border px-6 py-4" width="150px">Photo</th>
+                                <th class="border px-3 py-4">ID</th>
+                                <th class="border px-2 py-2" width="130px">Photo</th>
 
-                                <th class="border px-6 py-4">Name</th>
+                                <th class="border px-2 py-2">Name</th>
                                 {{-- <th class="border px-6 py-4">Ingredients</th> --}}
 
                                 {{-- <th class="border px-6 py-4">Description</th> --}}
-                                <th class="border px-6 py-4">Price</th>
-                                <th class="border px-6 py-4">Rate</th>
-                                <th class="border px-6 py-4">Types</th>
-                                <th class="border px-6 py-4" width="200px">Action</th>
+                                <th class="border px-2 py-2">Price</th>
+                                <th class="border px-2 py-2">Modal</th>
+                                <th class="border px-2 py-2">Laba</th>
+                                <th class="border px-2 py-2">Rate</th>
+                                <th class="border px-2 py-2">Types</th>
+                                <th class="border px-2 py-2">Total Terjual</th>
+                                <th class="border px-2 py-2" width="200px">Action</th>
                             </tr>
                         </thead>
                         @php
@@ -40,21 +43,27 @@
                             @forelse($food as $item)
                                 <tr>
                                     {{-- <td class="border px-6 py-4">{{ $no++ }}</td> --}}
-                                    <td class="border px-6 py-4">{{ $item->id }}</td>
+                                    <td class="border px-1 py-1">{{ $item->id }}</td>
 
 
-                                    <td class="border px-6 py-4 object-center">
+                                    <td class="border px-2 py-2 object-center">
 
                                         <img src="{{ $item->picturePath }}" class="w-48 rounded-md">
 
 
                                     </td>
-                                    <td class="border px-6 py-4 ">{{ $item->name }}</td>
+                                    <td class="border px-2 py-2 ">{{ $item->name }}</td>
                                     {{-- <td class="border px-6 py-4 ">{{ $item->ingredients }}</td> --}}
                                     {{-- <td class="border px-6 py-4 ">{{ $item->description }}</td> --}}
-                                    <td class="border px-6 py-4">Rp. {{ number_format($item->price) }}</td>
-                                    <td class="border px-6 py-4">{{ $item->rate }}</td>
-                                    <td class="border px-6 py-4">{{ $item->types }}</td>
+                                    <td class="border px-2 py-2">Rp. {{ number_format($item->price) }}</td>
+
+                                    <td class="border px-2 py-2">Rp. {{ number_format($item->modal) }}</td>
+
+                                    <td class="border px-2 py-2">Rp. {{ number_format($item->laba) }}</td>
+                                    <td class="border px-2 py-2">{{ $item->rate }} +</td>
+                                    <td class="border px-2 py-2">{{ $item->types }}</td>
+
+                                    <td class="border px-2 py-2">{{ $item->total_sold }} pcs</td>
                                     <td class="border">
                                         <a href="{{ route('food.show', $item->id) }}"
                                             class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded">
@@ -72,7 +81,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="6" class="border text-center p-5">
+                                    <td colspan="10" class="border text-center p-5">
                                         Data Tidak Ditemukan
                                     </td>
                                 </tr>

@@ -35,7 +35,7 @@
                                     for="grid-last-name">
                                     Name
                                 </label>
-                                <input value="{{ old('name') ?? $item->name}}" name="name"
+                                <input value="{{ old('name') ?? $item->name }}" name="name"
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-last-name" type="text" placeholder="User Name">
                             </div>
@@ -46,7 +46,7 @@
                                     for="grid-last-name">
                                     Email
                                 </label>
-                                <input value="{{ old('email') ?? $item->email}}" name="email"
+                                <input value="{{ old('email') ?? $item->email }}" name="email"
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-last-name" type="email" placeholder="User Email">
                             </div>
@@ -68,12 +68,12 @@
                                     for="grid-last-name">
                                     Password
                                 </label>
-                                <input value="{{ old('password') }}" name="password"
+                                <input value="{{ old('password')}}" name="password"
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-last-name" type="password" placeholder="User Password">
                             </div>
                         </div>
-                        <div class="flex flex-wrap -mx-3 mb-6">
+                        {{-- <div class="flex flex-wrap -mx-3 mb-6">
                             <div class="w-full px-3">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                     for="grid-last-name">
@@ -83,14 +83,14 @@
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-last-name" type="password" placeholder="User Password Confirmation">
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="flex flex-wrap -mx-3 mb-6">
                             <div class="w-full px-3">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                     for="grid-last-name">
                                     Address
                                 </label>
-                                <input value="{{ old('address') ?? $item->address}}" name="address"
+                                <input value="{{ old('address') ?? $item->address }}" name="address"
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-last-name" type="text" placeholder="User Address">
                             </div>
@@ -104,7 +104,7 @@
                                 <select name="roles"
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-last-name">
-                                    <option value="{{ $item->roles}}">{{ $item->roles }}</option>
+                                    <option value="{{ $item->roles }}">{{ $item->roles }}</option>
                                     <option value="USER">User</option>
                                     <option value="ADMIN">Admin</option>
                                 </select>
@@ -127,7 +127,7 @@
                                     for="grid-last-name">
                                     Phone Number
                                 </label>
-                                <input value="{{ old('phoneNumber') ?? $item->phoneNumber}}" name="phoneNumber"
+                                <input value="{{ old('phoneNumber') ?? $item->phoneNumber }}" name="phoneNumber"
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-last-name" type="text" placeholder="User Phone Number">
                             </div>
@@ -138,7 +138,7 @@
                                     for="grid-last-name">
                                     City
                                 </label>
-                                <input value="{{ old('city') ?? $item->city}}" name="city"
+                                <input value="{{ old('city') ?? $item->city }}" name="city"
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-last-name" type="text" placeholder="User City">
                             </div>
@@ -149,8 +149,15 @@
                                     class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                                     Update User
                                 </button>
+                                
+                                {{-- <a href="{{ route('password.edit', $item->id) }}"
+                                    class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded">
+                                    Update Password
+                                </a> --}}
                             </div>
+
                         </div>
+
                     </form>
                 </div>
             </div>

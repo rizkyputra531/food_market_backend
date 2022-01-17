@@ -16,7 +16,7 @@
                     </div>
                     <div class="w-full md:w-5/6 px-4 mb-4 md:mb-0">
                         <div class="flex flex-wrap mb-10">
-                            <div class="w-3/6">
+                            <div class="w-2/6">
                                 <div class="text-sm">Product Name</div>
                                 <div class="text-lg font-bold">{{ $item->name }}</div>
                             </div>
@@ -24,23 +24,39 @@
                                 <div class="text-sm">Quantity</div>
                                 <div class="text-xl font-bold">{{ number_format($item->quantity) }}</div>
                             </div> --}}
-                            <div class="w-1/6">
-                                <div class="text-sm">Rate</div>
-                                <div class="text-lg font-semibold">{{ number_format($item->rate) }} +</div>
-                            </div>
+                            
                             <div class="w-1/6">
                                 <div class="text-sm">Biaya</div>
-                                <div class="text-lg font-semibold">Rp. {{ $item->price }}</div>
+                                <div class="text-lg font-semibold">Rp. {{ number_format($item->price) }}</div>
                             </div>
+                            <div class="w-1/6">
+                                <div class="text-sm">Modal</div>
+                                <div class="text-lg font-semibold">Rp. {{ number_format($item->modal) }}</div>
+                            </div>
+                            <div class="w-1/6">
+                                <div class="text-sm">Laba</div>
+                                <div class="text-lg font-semibold">Rp. {{ number_format($item->laba) }}</div>
+                            </div>
+                            <div class="w-1/6">
+                                <div class="text-sm">Rate</div>
+                                <div class="text-lg font-semibold">{{ ($item->rate) }} +</div>
+                            </div>
+                            
+
                         </div>
                         <div class="flex flex-wrap mb-10">
-                            <div class="w-3/6">
+                            <div class="w-2/6">
                                 <div class="text-sm">Description</div>
                                 <div class="text-lg font-semibold">{{ $item->description }}</div>
                             </div>
+                            
                             <div class="w-2/6">
                                 <div class="text-sm">Bahan</div>
                                 <div class="text-lg font-semibold">{{ $item->ingredients }}</div>
+                            </div>
+                            <div class="w-1/6">
+                                <div class="text-sm">Total Terjual</div>
+                                <div class="text-lg font-semibold">{{ number_format($item->total_sold) }} pcs</div>
                             </div>
 
                         </div>

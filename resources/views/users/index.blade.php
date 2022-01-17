@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl  text-gray-800 leading-tight">
             {{ __('Data User') }}
         </h2>
     </x-slot>
@@ -15,16 +15,17 @@
             </div>
             <div class="bg-white max-w-7xl mx-auto px-4 py-10">
                 <div class="bg-white">
-                    <table class="table-auto w-full">
+                    <table class="table-auto w-full" style="font-size: 11px">
                         <thead>
                             <tr>
-                                <th class="border px-6 py-4">No</th>
-                                <th class="border px-6 py-4">ID</th>
-                                <th class="border px-6 py-4" width="150px">Photo</th>
-                                <th class="border px-6 py-4">Name</th>
-                                <th class="border px-6 py-4">Email</th>
-                                <th class="border px-6 py-4">Roles</th>
-                                <th class="border px-6 py-4">Action</th>
+                                <th class="border px-3 py-4" width="60px">No</th>
+                                <th class="border px-3 py-4" width="60px">ID</th>
+                                <th class="border px-2 py-4" width="100px">Photo</th>
+                                <th class="border px-2 py-4" width="200px">Name</th>
+                                <th class="border px-2 py-4">Email</th>
+                                <th class="border px-2 py-4">Roles</th>
+                                <th class="border px-2 py-4">Total Transaksi</th>
+                                <th class="border px-2 py-4" width="200px">Action</th>
                             </tr>
                         </thead>
                         @php
@@ -33,25 +34,27 @@
                         <tbody>
                             @forelse($user as $item)
                                 <tr class="text-center">
-                                    <td class="border px-6 py-4">{{ $no++ }}</td>
-                                    <td class="border px-6 py-4">{{ $item->id }}</td>
+                                    <td class="border px-2 py-2">{{ $no++ }}</td>
+                                    <td class="border px-2 py-2">{{ $item->id }}</td>
 
 
-                                    <td class="border px-6 py-4 object-center">
+                                    <td class="border px-2 py-2 object-center">
 
                                         <img src="{{ Storage::url($item->profile_photo_path) }}"
                                             class="w-30 rounded-md">
 
 
                                     </td>
-                                    <td class="border px-6 py-4 ">{{ $item->name }}</td>
-                                    <td class="border px-6 py-4">{{ $item->email }}</td>
-                                    <td class="border px-6 py-4 text-center">{{ $item->roles }}</td>
-                                    <td class="border px-6 py- text-center">
+                                    <td class="border px-2 py-2 ">{{ $item->name }}</td>
+                                    <td class="border px-2 py-2">{{ $item->email }}</td>
+                                    <td class="border px-2 py-2 text-center">{{ $item->roles }}</td>
+                                    <td class="border px-2 py-2">Rp. {{ number_format($item->total_transaksi) }}</td>
+                                    <td class="border px-2 py-2 text-center">
                                         <a href="{{ route('users.edit', $item->id) }}"
                                             class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded">
                                             Edit
                                         </a>
+                                        
                                         <form action="{{ route('users.destroy', $item->id) }}" method="POST"
                                             class="inline-block">
                                             {!! method_field('delete') . csrf_field() !!}

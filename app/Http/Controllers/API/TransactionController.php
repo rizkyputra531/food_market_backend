@@ -19,6 +19,10 @@ class TransactionController extends Controller
         $limit = $request->input('limit');
         $food_id = $request->input('food_id');
         $status = $request->input('status');
+        // $food_modal = $request->input('food_modal');
+        // $food_laba = $request->input('food_laba');
+        // $total_modal = $request->input('total_modal');
+        // $total_laba = $request->input('total_labaa');
 
 
 
@@ -69,6 +73,9 @@ class TransactionController extends Controller
     {
         $request->validate([
             'food_id' => 'required|exists:food,id',
+            // 'food_price' => 'required|exists:food,price',
+            // 'food_modal' => 'required|exists:food,modal',
+            // 'food_laba' => 'required|exists:food,laba',
             'user_id' => 'required|exists:users,id',
             'quantity' => 'required',
             'total' => 'required',
@@ -77,8 +84,21 @@ class TransactionController extends Controller
 
         $transaction = Transaction::create([
             'food_id' => $request->food_id,
+            'food_price' => $request->food_price,
+            'food_modal' => $request->food_modal,
+            'food_laba' => $request->food_laba,
+            'total_modal' => $request->total_modal,
+            'total_laba' => $request->total_laba,
+
             'user_id' => $request->user_id,
             'quantity' => $request->quantity,
+            $a = $request->food_modal,
+            $b = $request->food_laba,
+            $c = $request->quantity,
+
+
+            'total_modal' => $a * $c,
+            'total_laba' => $b * $c,
             'total' => $request->total,
             'status' => $request->status,
             'payment_url' => '',

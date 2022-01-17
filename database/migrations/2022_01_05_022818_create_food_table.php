@@ -21,7 +21,10 @@ class CreateFoodTable extends Migration
             $table->integer('price')->nullable();
             $table->double('rate')->nullable();
             $table->string('types')->nullable();
+            $table->integer('total_sold')->default('0');
             $table->text('picturePath')->nullable();
+            $table->integer('modal')->nullable();
+            $table->integer('laba')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

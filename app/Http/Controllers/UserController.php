@@ -92,7 +92,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UserUpdateRequest $request, User $user)
     {
         //
         $data = $request->all();
@@ -101,7 +101,6 @@ class UserController extends Controller
         $data['profile_photo_path'] = $request->file('profile_photo_path')->store('assets/user', 'public');
         }
         $data['password'] = Hash::make($request->password);
-        $data['current_team_id'] = 1;
         // dd($data);
         $user->update($data);
 

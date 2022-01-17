@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\MidtransController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -31,21 +32,14 @@ Route::prefix('dashboard')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('users', UserController::class);
+        // Route::resource('password', PasswordController::class);
         Route::resource('food', FoodController::class);
         Route::get('transactions/{id}/status/{status}', [TransactionController::class, 'changeStatus'])
         ->name('transactions.changeStatus');
         Route::resource('transactions', TransactionController::class);
+        Route::get('password', [PasswordController::class, 'edit'])
+        ->name('users.password.edit');
     });
-
-// Route::get('/debug-sentry', function () {
-//     throw new Exception('My first Sentry error!');
-// });
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
-
-
 //midtrans related
 Route::get('midtrans/success', [MidtransController::class, 'success']);
 Route::get('midtrans/unfinish', [MidtransController::class, 'unfinish']);
