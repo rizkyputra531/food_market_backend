@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\MidtransController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\KasMasukController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
@@ -37,6 +38,7 @@ Route::prefix('dashboard')
         Route::get('transactions/{id}/status/{status}', [TransactionController::class, 'changeStatus'])
         ->name('transactions.changeStatus');
         Route::resource('transactions', TransactionController::class);
+        Route::resource('kasmasuk', KasMasukController::class);
         Route::get('password', [PasswordController::class, 'edit'])
         ->name('users.password.edit');
     });
