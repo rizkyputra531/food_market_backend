@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Transaction;
 
 use Illuminate\Http\Request;
 
-
-class KasMasukController extends Controller
+class KeuntunganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,21 +13,7 @@ class KasMasukController extends Controller
      */
     public function index()
     {
-        $kasmasuk = Transaction::with(['food','user'])->paginate(10);
-        $total = Transaction::sum('total');
-        $total_modal = Transaction::sum('total_modal');
-        $total_laba = Transaction::sum('total_laba');
-        $quantity = Transaction::sum('quantity');
-
-        // dd($total);
-
-        return view('kasmasuk.index', [
-        'kasmasuk' => $kasmasuk,
-        'total' => $total,
-        'total_modal' => $total_modal,
-        'total_laba' => $total_laba,
-        'quantity' => $quantity,
-        ]);
+        //
     }
 
     /**
@@ -59,12 +43,9 @@ class KasMasukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Transaction $kasmasuk)
+    public function show($id)
     {
         //
-        return view('kasmasuk.detail',[
-        'item' => $kasmasuk
-        ]);
     }
 
     /**

@@ -59,7 +59,7 @@
                             <x-jet-dropdown-link href="/dashboard/kasmasuk">
                                 {{ __('Kas Masuk') }}
                             </x-jet-dropdown-link>
-                            <x-jet-dropdown-link href="#">
+                            <x-jet-dropdown-link href="/dashboard/kaskeluar">
                                 {{ __('Kas Keluar') }}
                             </x-jet-dropdown-link>
                             {{-- @endforeach --}}

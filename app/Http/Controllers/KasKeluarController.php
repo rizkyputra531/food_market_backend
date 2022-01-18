@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Transaction;
 
+use App\Http\Requests\KasKeluarRequest;
+use App\Models\KasKeluar;
 use Illuminate\Http\Request;
 
-
-class KasMasukController extends Controller
+class KasKeluarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,20 +15,15 @@ class KasMasukController extends Controller
      */
     public function index()
     {
-        $kasmasuk = Transaction::with(['food','user'])->paginate(10);
-        $total = Transaction::sum('total');
-        $total_modal = Transaction::sum('total_modal');
-        $total_laba = Transaction::sum('total_laba');
-        $quantity = Transaction::sum('quantity');
+        //
+        $kaskeluar = KasKeluar::paginate(10);
+        $quantity = KasKeluar::sum('quantity');
+        $total = KasKeluar::sum('total');
 
-        // dd($total);
-
-        return view('kasmasuk.index', [
-        'kasmasuk' => $kasmasuk,
-        'total' => $total,
-        'total_modal' => $total_modal,
-        'total_laba' => $total_laba,
+        return view('kaskeluar.index', [
+        'kaskeluar' => $kaskeluar,
         'quantity' => $quantity,
+        'total' => $total
         ]);
     }
 
@@ -40,6 +35,7 @@ class KasMasukController extends Controller
     public function create()
     {
         //
+        return view('kaskeluar.create');
     }
 
     /**
@@ -48,9 +44,17 @@ class KasMasukController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(KasKeluarRequest $request)
     {
         //
+         $data = $request->all();
+        //  $a = $request['price'];
+        //  $b = $request['modal'];
+        //  $data['laba'] = $a-$b;
+
+         KasKeluar::create($data);
+
+         return redirect()->route('kaskeluar.index')->with('success', 'Data Berhasil Ditambahkan!!');
     }
 
     /**
@@ -59,12 +63,9 @@ class KasMasukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Transaction $kasmasuk)
+    public function show($id)
     {
         //
-        return view('kasmasuk.detail',[
-        'item' => $kasmasuk
-        ]);
     }
 
     /**
@@ -73,9 +74,12 @@ class KasMasukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(KasKeluar $kaskeluar)
     {
         //
+        return view('kaskeluar.edit',[
+        'item' => $kaskeluar
+        ]);
     }
 
     /**
@@ -85,9 +89,15 @@ class KasMasukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, KasKeluar $kaskeluar)
     {
         //
+        $data = $request->all();
+
+       
+        $kaskeluar->update($data);
+
+        return redirect()->route('kaskeluar.index');
     }
 
     /**
@@ -96,8 +106,11 @@ class KasMasukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(KasKeluar $kaskeluar)
     {
         //
+        $kaskeluar->delete();
+
+        return redirect()->route('kaskeluar.index');
     }
 }
