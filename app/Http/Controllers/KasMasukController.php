@@ -20,6 +20,7 @@ class KasMasukController extends Controller
         $total_modal = Transaction::sum('total_modal');
         $total_laba = Transaction::sum('total_laba');
         $quantity = Transaction::sum('quantity');
+        
 
         // dd($total);
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\KasKeluarController;
 use App\Http\Controllers\KasMasukController;
+use App\Http\Controllers\KeuntunganController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
@@ -41,6 +42,7 @@ Route::prefix('dashboard')
         Route::resource('transactions', TransactionController::class);
         Route::resource('kasmasuk', KasMasukController::class);
         Route::resource('kaskeluar', KasKeluarController::class);
+        Route::resource('keuntungan', KeuntunganController::class);
         Route::get('password', [PasswordController::class, 'edit'])
         ->name('users.password.edit');
     });
