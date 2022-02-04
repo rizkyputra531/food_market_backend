@@ -13,7 +13,7 @@ class Transaction extends Model
 
     protected $fillable = [
         'food_id', 'user_id', 'quantity', 'total', 'status', 'payment_url', 'food_price', 'food_modal', 'food_laba',
-        'total_modal', 'total_laba'
+        'total_modal', 'total_laba',
     ];
 
     public function food()

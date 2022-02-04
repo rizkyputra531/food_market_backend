@@ -54,7 +54,7 @@
                             <option {{ request()->get("type") == "DELIVERED" ? "Selected" : "" }} value="DELIVERED">DELIVERED</option>
                             <option {{ request()->get("type") == "CANCELLED" ? "Selected" : "" }} value="CANCELLED">CANCELLED</option>
                         </select>
-                        <button type="submit">Filter</button>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">Filter</button>
                     </form>
                     <table class="table-auto w-full text-center" style="font-size: 12px">
                         <thead>

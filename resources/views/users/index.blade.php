@@ -20,7 +20,7 @@
                         <option value="user">user</option>
                     </select>
                     @csrf
-                    <button type="submit">Download excel</button>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">Download excel</button>
                 </form>
 
                 <form class="mt-5">
@@ -30,7 +30,7 @@
                         <option {{ request()->get("roles") == "admin" ? "selected" : "" }} value="admin">admin</option>
                         <option {{ request()->get("roles") == "user" ? "selected" : "" }} value="user">user</option>
                     </select>
-                    <button type="submit">Filter</button>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">Filter</button>
                 </form>
             </div>
             <div class="bg-white max-w-7xl mx-auto px-4 py-10">

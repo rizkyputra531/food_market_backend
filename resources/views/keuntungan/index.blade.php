@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
      <div class="mt-10 mb-10">
-         <form class="max-w-7xl mx-auto py-5" method="GET">
+         <form class="max-w-7xl mx-auto mb-5" method="GET">
              <select name="tahun" id="tahun">
                  <option value="">- pilih tahun -</option>                 
                  @for($i=date("Y")-5;$i<=date("Y");$i++)
@@ -18,9 +18,9 @@
                     <option value="{{$i}}" {{request()->get("bulan") == $i ? "selected" : ""}}>{{$bulan[$i-1]}}</option>
                  @endfor
              </select>
-             <button type="submit">Filter</button>
+             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">Filter</button>
          </form>
-         <form class="max-w-7xl mx-auto py-5" method="POST" action="{{route('keuntungan.excel')}}">
+         <form class="max-w-7xl mx-auto mb-10" method="POST" action="{{route('keuntungan.excel')}}">
              @csrf
              <select name="tahun1" id="tahun1">
                  <option value="">- semua tahun -</option>                 
@@ -34,7 +34,7 @@
                     <option value="{{$i}}" {{request()->post("bulan1") == $i ? "selected" : ""}}>{{$bulan[$i-1]}}</option>
                  @endfor
              </select>
-             <button type="submit">Download excel</button>
+             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">Download excel</button>
          </form>
         <div class="bg-white max-w-7xl mx-auto px-4 py-10">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

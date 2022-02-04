@@ -63,9 +63,10 @@
                             <option {{ request()->get("type") == "Retribusi" ? "Selected" : "" }} value="Retribusi">Retribusi</option>
                             <option {{ request()->get("type") == "Pemeliharaan" ? "Selected" : "" }} value="Pemeliharaan">Pemeliharaan</option>
                         </select>
-                        <button type="submit">Filter</button>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">Filter Data</button>
                     </form>
                 </div>
+                
                 <div class="bg-white">
                     <table class="table-auto w-full text-center" style="font-size: 12px">
                         <thead>
